@@ -21,10 +21,31 @@ class _MainScreenState extends State<MainScreen> {
     ProfileScreen()
   ];
 
+  int currentTabIndex = 0;
+
+  void onTapScreen(int index) {
+    setState(() {
+      currentTabIndex = index;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
+      body: screens[currentTabIndex],
       bottomNavigationBar: BottomNavigationBar(
+        unselectedFontSize: 0,
+        selectedFontSize: 0,
+        type: BottomNavigationBarType.fixed,
+        backgroundColor: Colors.white,
+        onTap: onTapScreen,
+        currentIndex: currentTabIndex,
+        selectedItemColor: Colors.black54,
+        unselectedItemColor: Colors.grey.withOpacity(0.5),
+        showUnselectedLabels: false,
+        showSelectedLabels: false,
+        elevation: 0,
         items: const [
           BottomNavigationBarItem(label: "Home", icon: Icon(Icons.apps)),
           BottomNavigationBarItem(label: "Bar", icon: Icon(Icons.bar_chart_sharp)),
@@ -35,3 +56,10 @@ class _MainScreenState extends State<MainScreen> {
     );
   }
 }
+
+
+
+
+
+
+
