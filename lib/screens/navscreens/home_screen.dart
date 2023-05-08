@@ -10,9 +10,11 @@ class HomeScreen extends StatefulWidget {
   }
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
+    TabController _tabController = TabController(length: 3, vsync: this);
+
     return Scaffold(
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -44,21 +46,30 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           const SizedBox(height: 30),
           // TABBAR
+          Container(
+            child: TabBar(
+              controller: _tabController,
+              tabs: [
+                Tab(text: "Places"),
+                Tab(text: "Inspiration"),
+                Tab(text: "Emotions"),
+              ],
+            ),
+          ),
+          Container(
+            height: 300,
+            width: double.maxFinite,
+            child: TabBarView(
+              controller: _tabController,
+              children: [
+                Text("View 1"),
+                Text("View 2"),
+                Text("View 3"),
+              ],
+            ),
+          ),
         ],
       ),
     );
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
