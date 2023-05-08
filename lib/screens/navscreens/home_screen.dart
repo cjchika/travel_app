@@ -13,6 +13,13 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
+  var imageText = {
+    "ballooning.png":"Ballooning",
+    "hiking.png":"Hiking",
+    "kayaking.png":"Kayaking",
+    "snorkeling.png":"Snorkeling"
+  };
+
   @override
   Widget build(BuildContext context) {
     TabController _tabController = TabController(length: 3, vsync: this);
@@ -108,7 +115,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                   AppText(text: "See all", color: AppColors.textColor1)
                 ],
               )),
-          const SizedBox(height: 20),
+          const SizedBox(height: 15),
           Container(
             height: 100,
             width: double.maxFinite,
@@ -117,21 +124,25 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
               scrollDirection: Axis.horizontal,
                 itemCount: 4,
                 itemBuilder: (ctx, index) {
-                  return Column(
-                    children: [
-                      Container(
-                        margin: const EdgeInsets.only(right: 50),
-                        width: 80,
-                        height: 80,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(20),
-                          color: Colors.white,
-                          image: const DecorationImage(
-                              image: AssetImage("img/mountain.jpeg"),
-                              fit: BoxFit.cover),
+                  return Container(
+                    margin: const EdgeInsets.only(right: 30),
+                    child: Column(
+                      children: [
+                        Container(
+                          // margin: const EdgeInsets.only(right: 50),
+                          width: 80,
+                          height: 80,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20),
+                            color: Colors.white,
+                            image: const DecorationImage(
+                                image: AssetImage("img/mountain.jpeg"),
+                                fit: BoxFit.cover),
+                          ),
                         ),
-                      )
-                    ],
+                        Container(child: AppText(text: "Hike", size: 14, color: AppColors.textColor2,),)
+                      ],
+                    ),
                   );
                 }),
           ),
