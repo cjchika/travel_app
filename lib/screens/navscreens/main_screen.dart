@@ -1,7 +1,25 @@
 import 'package:flutter/material.dart';
+import 'package:travel_app/screens/navscreens/bar_item_screen.dart';
+import 'package:travel_app/screens/navscreens/profile_screen.dart';
+import 'package:travel_app/screens/navscreens/search_screen.dart';
+import 'package:travel_app/screens/navscreens/home_screen.dart';
 
-class MainScreen extends StatelessWidget {
+class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
+
+  @override
+  State<MainScreen> createState() {
+    return _MainScreenState();
+  }
+}
+
+class _MainScreenState extends State<MainScreen> {
+  List screens = [
+    HomeScreen(),
+    BarItemScreen(),
+    SearchScreen(),
+    ProfileScreen()
+  ];
 
   @override
   Widget build(BuildContext context) {
