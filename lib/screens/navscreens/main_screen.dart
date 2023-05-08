@@ -5,6 +5,15 @@ class MainScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Center(child: Text("Home Screen"),);
+    return Scaffold(
+      bottomNavigationBar: BottomNavigationBar(
+        items: const [
+          BottomNavigationBarItem(label: "Home", icon: Icon(Icons.apps)),
+          BottomNavigationBarItem(label: "Bar", icon: Icon(Icons.bar_chart_sharp)),
+          BottomNavigationBarItem(label: "Search", icon: Icon(Icons.search)),
+          BottomNavigationBarItem(label: "Profile", icon: Icon(Icons.person))
+        ],
+      ),
+    );
   }
 }
