@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:travel_app/misc/colors.dart';
 import 'package:travel_app/widgets/app_large_text.dart';
+import 'package:travel_app/widgets/app_text.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -57,7 +58,8 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                 unselectedLabelColor: Colors.grey,
                 isScrollable: true,
                 indicatorSize: TabBarIndicatorSize.label,
-                indicator: CircleTabIndicator(color: AppColors.mainColor, radius: 4),
+                indicator:
+                    CircleTabIndicator(color: AppColors.mainColor, radius: 4),
                 tabs: [
                   Tab(text: "Places"),
                   Tab(text: "Inspiration"),
@@ -67,24 +69,51 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
             ),
           ),
           Container(
+            padding: const EdgeInsets.only(left: 20),
             height: 300,
             width: double.maxFinite,
             child: TabBarView(
               controller: _tabController,
               children: [
-                Text("View 1"),
+                ListView.builder(
+                    itemCount: 3,
+                    scrollDirection: Axis.horizontal,
+                    itemBuilder: (BuildContext context, int index) {
+                      return Container(
+                        margin: const EdgeInsets.only(right: 15, top: 10),
+                        width: 200,
+                        height: 300,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          color: Colors.white,
+                          image: const DecorationImage(
+                              image: AssetImage("img/mountain.jpeg"),
+                              fit: BoxFit.cover),
+                        ),
+                      );
+                    }),
                 Text("View 2"),
                 Text("View 3"),
               ],
             ),
           ),
+          const SizedBox(height: 30),
+          Container(
+              margin: const EdgeInsets.only(left: 20, right: 20),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  AppLargeText(text: "Explore More", size: 20),
+                  AppText(text: "See all", color: AppColors.textColor1)
+                ],
+              ))
         ],
       ),
     );
   }
 }
 
-class CircleTabIndicator extends Decoration{
+class CircleTabIndicator extends Decoration {
   const CircleTabIndicator({required this.color, required this.radius});
 
   final Color color;
@@ -96,7 +125,7 @@ class CircleTabIndicator extends Decoration{
   }
 }
 
-class _CirclePainter extends BoxPainter{
+class _CirclePainter extends BoxPainter {
   const _CirclePainter({required this.color, required this.radius});
 
   final Color color;
@@ -107,20 +136,10 @@ class _CirclePainter extends BoxPainter{
     Paint _paint = Paint();
     _paint.color = color;
     _paint.isAntiAlias = true;
-    final Offset circleOffset = Offset(configuration.size!.width/2 -radius/2, configuration.size!.height-radius);
+    final Offset circleOffset = Offset(
+        configuration.size!.width / 2 - radius / 2,
+        configuration.size!.height - radius);
 
-    canvas.drawCircle(offset+circleOffset, radius, _paint);
+    canvas.drawCircle(offset + circleOffset, radius, _paint);
   }
-
 }
-
-
-
-
-
-
-
-
-
-
-
