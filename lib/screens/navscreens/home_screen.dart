@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:travel_app/misc/colors.dart';
 import 'package:travel_app/widgets/app_large_text.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -47,13 +48,22 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
           const SizedBox(height: 30),
           // TABBAR
           Container(
-            child: TabBar(
-              controller: _tabController,
-              tabs: [
-                Tab(text: "Places"),
-                Tab(text: "Inspiration"),
-                Tab(text: "Emotions"),
-              ],
+            child: Align(
+              alignment: Alignment.centerLeft,
+              child: TabBar(
+                labelPadding: const EdgeInsets.only(left: 20, right: 20),
+                controller: _tabController,
+                labelColor: Colors.black,
+                unselectedLabelColor: Colors.grey,
+                isScrollable: true,
+                indicatorSize: TabBarIndicatorSize.label,
+                indicator: CircleTabIndicator(color: AppColors.mainColor, radius: 4),
+                tabs: [
+                  Tab(text: "Places"),
+                  Tab(text: "Inspiration"),
+                  Tab(text: "Emotions"),
+                ],
+              ),
             ),
           ),
           Container(
@@ -73,3 +83,44 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
     );
   }
 }
+
+class CircleTabIndicator extends Decoration{
+  const CircleTabIndicator({required this.color, required this.radius});
+
+  final Color color;
+  final double radius;
+
+  @override
+  BoxPainter createBoxPainter([VoidCallback? onChanged]) {
+    return _CirclePainter(color: color, radius: radius);
+  }
+}
+
+class _CirclePainter extends BoxPainter{
+  const _CirclePainter({required this.color, required this.radius});
+
+  final Color color;
+  final double radius;
+
+  @override
+  void paint(Canvas canvas, Offset offset, ImageConfiguration configuration) {
+    Paint _paint = Paint();
+    _paint.color = color;
+    _paint.isAntiAlias = true;
+    final Offset circleOffset = Offset(configuration.size!.width/2 -radius/2, configuration.size!.height-radius);
+
+    canvas.drawCircle(offset+circleOffset, radius, _paint);
+  }
+
+}
+
+
+
+
+
+
+
+
+
+
+
