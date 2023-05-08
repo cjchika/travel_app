@@ -98,6 +98,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
             ),
           ),
           const SizedBox(height: 30),
+          // EXPLORE MORE
           Container(
               margin: const EdgeInsets.only(left: 20, right: 20),
               child: Row(
@@ -106,7 +107,34 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                   AppLargeText(text: "Explore More", size: 20),
                   AppText(text: "See all", color: AppColors.textColor1)
                 ],
-              ))
+              )),
+          const SizedBox(height: 20),
+          Container(
+            height: 100,
+            width: double.maxFinite,
+            margin: const EdgeInsets.only(left: 20),
+            child: ListView.builder(
+              scrollDirection: Axis.horizontal,
+                itemCount: 4,
+                itemBuilder: (ctx, index) {
+                  return Column(
+                    children: [
+                      Container(
+                        margin: const EdgeInsets.only(right: 50),
+                        width: 80,
+                        height: 80,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          color: Colors.white,
+                          image: const DecorationImage(
+                              image: AssetImage("img/mountain.jpeg"),
+                              fit: BoxFit.cover),
+                        ),
+                      )
+                    ],
+                  );
+                }),
+          ),
         ],
       ),
     );
