@@ -47,13 +47,13 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
               ],
             ),
           ),
-          const SizedBox(height: 40),
+          const SizedBox(height: 20),
           // DISCOVER
           Container(
             margin: const EdgeInsets.only(left: 20),
             child: const AppLargeText(text: "Discover"),
           ),
-          const SizedBox(height: 30),
+          const SizedBox(height: 20),
           // TABBAR
           Container(
             child: Align(
@@ -117,7 +117,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
               )),
           const SizedBox(height: 15),
           Container(
-            height: 100,
+            height: 120,
             width: double.maxFinite,
             margin: const EdgeInsets.only(left: 20),
             child: ListView.builder(
@@ -140,6 +140,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                                 fit: BoxFit.cover),
                           ),
                         ),
+                        const SizedBox(height: 10),
                         Container(child: AppText(text: "${imageText.values.elementAt(index)}", size: 14, color: AppColors.textColor2,),)
                       ],
                     ),
