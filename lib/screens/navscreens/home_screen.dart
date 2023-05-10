@@ -14,10 +14,10 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
   var imageText = {
-    "ballooning.png":"Ballooning",
+    "balloning.png":"Ballooning",
     "hiking.png":"Hiking",
     "kayaking.png":"Kayaking",
-    "snorkeling.png":"Snorkeling"
+    "snorkling.png":"Snorkeling"
   };
 
   @override
@@ -135,12 +135,12 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(20),
                             color: Colors.white,
-                            image: const DecorationImage(
-                                image: AssetImage("img/mountain.jpeg"),
+                            image: DecorationImage(
+                                image: AssetImage("img/${imageText.keys.elementAt(index)}"),
                                 fit: BoxFit.cover),
                           ),
                         ),
-                        Container(child: AppText(text: "Hike", size: 14, color: AppColors.textColor2,),)
+                        Container(child: AppText(text: "${imageText.values.elementAt(index)}", size: 14, color: AppColors.textColor2,),)
                       ],
                     ),
                   );

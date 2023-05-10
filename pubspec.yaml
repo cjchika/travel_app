@@ -66,6 +66,10 @@ flutter:
      - img/button-one.png
      - img/user.png
      - img/mountain.jpeg
+     - img/balloning.png
+     - img/kayaking.png
+     - img/hiking.png
+     - img/snorkling.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
