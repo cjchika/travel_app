@@ -18,27 +18,47 @@ class _DetailScreenState extends State<DetailScreen> {
         height: double.maxFinite,
         child: Stack(children: [
           Positioned(
+              left: 0,
+              right: 0,
+              child: Container(
+                width: double.maxFinite,
+                height: 350,
+                decoration: const BoxDecoration(
+                  image: DecorationImage(
+                      image: AssetImage('img/mountain.jpeg'),
+                      fit: BoxFit.cover),
+                ),
+              )),
+          Positioned(
               width: 380,
               left: 20,
               top: 50,
               child: Row(
                 // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  IconButton(onPressed: () {}, icon: const Icon(Icons.menu)),
-                  Spacer(),
                   IconButton(
-                      onPressed: () {}, icon: const Icon(Icons.more_vert))
+                    onPressed: () {},
+                    icon: const Icon(Icons.menu),
+                    color: Colors.white,
+                  ),
+                  const Spacer(),
+                  IconButton(
+                    onPressed: () {},
+                    icon: const Icon(Icons.more_vert),
+                    color: Colors.white,
+                  )
                 ],
               )),
           Positioned(
-              left: 0,
-              right: 0,
+              top: 300,
               child: Container(
-                width: double.maxFinite,
-                height: 300,
+                height: 550,
+                width: MediaQuery.of(context).size.width,
                 decoration: const BoxDecoration(
-                  image: DecorationImage(
-                    image: AssetImage('img/mountain.jpeg'),
+                  color: Colors.red,
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(40),
+                    topRight: Radius.circular(40),
                   ),
                 ),
               ))
