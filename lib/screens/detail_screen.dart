@@ -33,7 +33,7 @@ class _DetailScreenState extends State<DetailScreen> {
                 height: 350,
                 decoration: const BoxDecoration(
                   image: DecorationImage(
-                      image: AssetImage('img/mountain.jpeg'),
+                      image: AssetImage('img/mountain2.jpg'),
                       fit: BoxFit.cover),
                 ),
               )),
