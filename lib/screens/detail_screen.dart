@@ -15,6 +15,7 @@ class DetailScreen extends StatefulWidget {
 
 class _DetailScreenState extends State<DetailScreen> {
   int starred = 4;
+  int selectedIndex = -1;
 
   @override
   Widget build(BuildContext context) {
@@ -122,14 +123,21 @@ class _DetailScreenState extends State<DetailScreen> {
                     const SizedBox(height: 10),
                     Wrap(
                       children: List.generate(5, (index) {
-                        return Container(
-                          margin: const EdgeInsets.only(right: 10),
-                          child: AppButtons(
-                              color: Colors.black,
-                              backgroundColor: AppColors.buttonBackground,
-                              size: 50,
-                              borderColor: AppColors.buttonBackground,
-                              text: (index+1).toString(),
+                        return InkWell(
+                          onTap: (){
+                            setState(() {
+                              selectedIndex = index;
+                            });
+                          },
+                          child: Container(
+                            margin: const EdgeInsets.only(right: 10),
+                            child: AppButtons(
+                                color: selectedIndex == index ? Colors.white : Colors.black,
+                                backgroundColor: selectedIndex == index ? Colors.black : AppColors.buttonBackground,
+                                size: 50,
+                                borderColor: selectedIndex == index ? Colors.black : AppColors.buttonBackground,
+                                text: (index+1).toString(),
+                            ),
                           ),
                         );
                       }),

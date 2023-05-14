@@ -34,7 +34,7 @@ class AppButtons extends StatelessWidget {
           ? Center(
               child: AppText(
                 text: text!,
-                color: Colors.black,
+                color: color,
               ),
             )
           : Center(
