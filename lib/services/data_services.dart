@@ -10,8 +10,8 @@ class DataServices {
     http.Response response = await http.get(Uri.parse(baseUrl+apiUrl));
     try{
       if(response.statusCode==200){
-        print(response.body);
         List<dynamic> list = json.decode(response.body);
+        print(list);
         return list.map((data) => DataModel.fromJson(data)).toList();
       }
     }catch(e) {

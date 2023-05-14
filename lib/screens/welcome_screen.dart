@@ -69,9 +69,12 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                           onTap: () {
                             BlocProvider.of<AppCubits>(context).getData();
                           },
-                            child: Container(
-                                width: 200,
-                                child: const ResponsiveButton(width: 120)))
+                          child: Container(
+                            width: 200,
+                            child: Row(
+                                children: const [ResponsiveButton(width: 120)]),
+                          ),
+                        )
                       ],
                     ),
                     Column(
