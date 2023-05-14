@@ -13,6 +13,8 @@ class DetailScreen extends StatefulWidget {
 }
 
 class _DetailScreenState extends State<DetailScreen> {
+  int starred = 4;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -97,13 +99,35 @@ class _DetailScreenState extends State<DetailScreen> {
                       children: [
                         Wrap(
                           children: List.generate(5, (index) {
-                            return Icon(Icons.star, color: AppColors.starColor);
+                            return Icon(Icons.star,
+                                color: index < starred
+                                    ? AppColors.starColor
+                                    : AppColors.textColor2);
                           }),
                         ),
                         const SizedBox(width: 10),
                         AppText(text: "(4.5)", color: AppColors.textColor2),
                       ],
-                    )
+                    ),
+                    const SizedBox(height: 25),
+                    AppLargeText(
+                        text: "People",
+                        color: Colors.black.withOpacity(0.8),
+                        size: 20),
+                    const SizedBox(height: 5),
+                    AppText(
+                        text: "Number of people in your group.",
+                        color: AppColors.mainTextColor),
+                    Wrap(
+                        children: List.generate(5, (index) {
+                      return Container(
+                        width: 60,
+                        height: 60,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(15),
+                            color: AppColors.buttonBackground),
+                      );
+                    })),
                   ],
                 ),
               ))
