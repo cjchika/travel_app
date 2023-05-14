@@ -5,11 +5,12 @@ import 'package:http/http.dart' as http;
 class DataServices {
   String baseUrl = "http://mark.bsmeiyu.com/api";
 
-  Future<List<DataModel>>  getInfo() async {
+  Future<List<DataModel>> getInfo() async {
     var apiUrl = "/getplaces";
     http.Response response = await http.get(Uri.parse(baseUrl+apiUrl));
     try{
       if(response.statusCode==200){
+        print(response.body);
         List<dynamic> list = json.decode(response.body);
         return list.map((data) => DataModel.fromJson(data)).toList();
       }
