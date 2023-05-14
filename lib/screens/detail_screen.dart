@@ -3,6 +3,7 @@ import 'package:travel_app/misc/colors.dart';
 import 'package:travel_app/widgets/app_buttons.dart';
 import 'package:travel_app/widgets/app_large_text.dart';
 import 'package:travel_app/widgets/app_text.dart';
+import 'package:travel_app/widgets/responsive_button.dart';
 
 class DetailScreen extends StatefulWidget {
   const DetailScreen({super.key});
@@ -163,9 +164,21 @@ class _DetailScreenState extends State<DetailScreen> {
                 ),
               )),
           Positioned(
-              bottom: 0,
+              bottom: 20,
+              left: 20,
+              right: 20,
               child: Row(
-                children: [],
+                children: [
+                  AppButtons(
+                      color: AppColors.textColor1,
+                      backgroundColor: Colors.white,
+                      size: 60,
+                      borderColor: AppColors.textColor2,
+                      isIcon: true,
+                      icon: Icons.favorite_border_outlined,),
+                  const SizedBox(width: 20),
+                  const ResponsiveButton(isResponsive: true),
+                ],
               ))
         ]),
       ),
