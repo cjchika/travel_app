@@ -119,13 +119,19 @@ class _DetailScreenState extends State<DetailScreen> {
                     AppText(
                         text: "Number of people in your group.",
                         color: AppColors.mainTextColor),
+                    const SizedBox(height: 10),
                     Wrap(
                       children: List.generate(5, (index) {
-                        return AppButtons(
-                            color: Colors.black,
-                            backgroundColor: AppColors.buttonBackground,
-                            size: 50,
-                            borderColor: AppColors.buttonBackground);
+                        return Container(
+                          margin: const EdgeInsets.only(right: 10),
+                          child: AppButtons(
+                              color: Colors.black,
+                              backgroundColor: AppColors.buttonBackground,
+                              size: 50,
+                              borderColor: AppColors.buttonBackground,
+                              text: (index+1).toString(),
+                          ),
+                        );
                       }),
                     ),
                   ],
