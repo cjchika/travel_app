@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:travel_app/misc/colors.dart';
+import 'package:travel_app/widgets/app_buttons.dart';
 import 'package:travel_app/widgets/app_large_text.dart';
 import 'package:travel_app/widgets/app_text.dart';
 
@@ -119,15 +120,14 @@ class _DetailScreenState extends State<DetailScreen> {
                         text: "Number of people in your group.",
                         color: AppColors.mainTextColor),
                     Wrap(
-                        children: List.generate(5, (index) {
-                      return Container(
-                        width: 60,
-                        height: 60,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(15),
-                            color: AppColors.buttonBackground),
-                      );
-                    })),
+                      children: List.generate(5, (index) {
+                        return AppButtons(
+                            color: Colors.black,
+                            backgroundColor: AppColors.buttonBackground,
+                            size: 50,
+                            borderColor: AppColors.buttonBackground);
+                      }),
+                    ),
                   ],
                 ),
               ))
