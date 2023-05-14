@@ -124,7 +124,7 @@ class _DetailScreenState extends State<DetailScreen> {
                     Wrap(
                       children: List.generate(5, (index) {
                         return InkWell(
-                          onTap: (){
+                          onTap: () {
                             setState(() {
                               selectedIndex = index;
                             });
@@ -132,18 +132,40 @@ class _DetailScreenState extends State<DetailScreen> {
                           child: Container(
                             margin: const EdgeInsets.only(right: 10),
                             child: AppButtons(
-                                color: selectedIndex == index ? Colors.white : Colors.black,
-                                backgroundColor: selectedIndex == index ? Colors.black : AppColors.buttonBackground,
-                                size: 50,
-                                borderColor: selectedIndex == index ? Colors.black : AppColors.buttonBackground,
-                                text: (index+1).toString(),
+                              color: selectedIndex == index
+                                  ? Colors.white
+                                  : Colors.black,
+                              backgroundColor: selectedIndex == index
+                                  ? Colors.black
+                                  : AppColors.buttonBackground,
+                              size: 50,
+                              borderColor: selectedIndex == index
+                                  ? Colors.black
+                                  : AppColors.buttonBackground,
+                              text: (index + 1).toString(),
                             ),
                           ),
                         );
                       }),
                     ),
+                    const SizedBox(height: 20),
+                    AppLargeText(
+                        text: "Description",
+                        color: Colors.black.withOpacity(0.8),
+                        size: 22),
+                    const SizedBox(height: 8),
+                    AppText(
+                      text:
+                          "You should go for a vacation. Travelling helps get rid of pressure. Explore, go to the mountains and see nature!",
+                      color: AppColors.mainTextColor,
+                    ),
                   ],
                 ),
+              )),
+          Positioned(
+              bottom: 0,
+              child: Row(
+                children: [],
               ))
         ]),
       ),
