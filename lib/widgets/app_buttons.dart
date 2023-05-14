@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:travel_app/widgets/app_text.dart';
-import '../misc/colors.dart';
 
 class AppButtons extends StatelessWidget {
   AppButtons(
